@@ -1,21 +1,21 @@
 module ID_EX(clk,reset,intterupt,
     PCplus4ID,readdata1ID,readdata2ID,extenddataID,rdaddrID,rtaddrID,rsaddrID,
-    RegWriteID,ExtOpID,MemReadID,MemWriteID,FunctID,
-    ALUSrcID,MemtoRegID,BranchID,RegDstID,ALUOpID,
+    RegWriteID,ExtOpID,MemReadID,MemWriteID,FunctID,shamtID,
+    ALUSrcID,MemtoRegID,RegDstID,ALUOpID,
     PCplus4EX,readdata1EX,readdata2EX,extenddataEX,rdaddrEX,rtaddrEX,rsaddrEX,
-    RegWriteEX,ExtOpEX,MemReadEX,MemWriteEX,FunctEX,
-    ALUSrcEX,MemtoRegEX,BranchEX,RegDstEX,ALUOpEX);
+    RegWriteEX,ExtOpEX,MemReadEX,MemWriteEX,FunctEX,shamtEX,
+    ALUSrcEX,MemtoRegEX,RegDstEX,ALUOpEX);
 
     input clk,reset,intterupt;
     input [31:0] PCplus4ID,readdata1ID,readdata2ID,extenddataID;
-    input [4:0] rdaddrID,rtaddrID,rsaddrID;
-    input RegWriteID,ExtOpID,MemReadID,MemWriteID,ALUSrcID,MemtoRegID,BranchID;
+    input [4:0] rdaddrID,rtaddrID,rsaddrID,shamtID;
+    input RegWriteID,ExtOpID,MemReadID,MemWriteID,ALUSrcID,MemtoRegID;
     input [1:0] RegDstID;
     input [3:0] ALUOpID;
     input [5:0] FunctID;
     output reg [31:0] PCplus4EX,readdata1EX,readdata2EX,extenddataEX;
-    output reg [4:0] rdaddrEX,rtaddrEX,rsaddrEX;
-    output reg RegWriteEX,ExtOpEX,MemReadEX,MemWriteEX,ALUSrcEX,MemtoRegEX,BranchEX;
+    output reg [4:0] rdaddrEX,rtaddrEX,rsaddrEX,shamtEX;
+    output reg RegWriteEX,ExtOpEX,MemReadEX,MemWriteEX,ALUSrcEX,MemtoRegEX;
     output reg [1:0] RegDstEX;
     output reg [3:0] ALUOpEX;
     output reg [5:0] FunctEX;
@@ -30,13 +30,13 @@ module ID_EX(clk,reset,intterupt,
             rdaddrEX<=0;
             rtaddrEX<=0;
             rsaddrEX<=0;
+            shamtEX<=0;
             RegWriteEX<=0;
             ExtOpEX<=0;
             MemReadEX<=0;
             MemWriteEX<=0;
             ALUSrcEX<=0;
             MemtoRegEX<=0;
-            BranchEX<=0;
             RegDstEX<=0;
             ALUOpEX<=0;
             FunctEX<=0;
@@ -49,13 +49,13 @@ module ID_EX(clk,reset,intterupt,
             rdaddrEX<=rdaddrID;
             rtaddrEX<=rtaddrID;
             rsaddrEX<=rsaddrID;
+            shamtEX<=shamtID;
             RegWriteEX<=RegWriteID;
             ExtOpEX<=ExtOpID;
             MemReadEX<=MemReadID;
             MemWriteEX<=MemWriteID;
             ALUSrcEX<=ALUSrcID;
             MemtoRegEX<=MemtoRegID;
-            BranchEX<=BranchID;
             RegDstEX<=RegDstID;
             ALUOpEX<=ALUOpID;
             FunctEX<=FunctID;

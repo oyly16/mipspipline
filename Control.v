@@ -1,12 +1,12 @@
 
 module Control(OpCode,Funct,stall,
-	BranchID,RegWriteID,RegDstID,MemReadID,MemWriteID,MemtoRegID,ALUSrcID,ExtOpID,ALUOpID);
+	BranchID,JumpID,RegWriteID,RegDstID,MemReadID,MemWriteID,MemtoRegID,ALUSrcID,ExtOpID,ALUOpID);
 
 	input [5:0] OpCode;
 	input [5:0] Funct;
 	input stall;
 	//output [1:0] PCSrc;
-	output BranchID,RegWriteID,MemReadID,MemWriteID,MemtoRegID,ALUSrcID,ExtOpID;
+	output BranchID,JumpID,RegWriteID,MemReadID,MemWriteID,MemtoRegID,ALUSrcID,ExtOpID;
 	output [1:0] RegDstID;
 	output [3:0] ALUOpID;
 	
@@ -20,12 +20,15 @@ module Control(OpCode,Funct,stall,
 	assign ALUOpID[3] = OpCode[0];
 
 	assign BranchID=
-		(stall)? 0:
-		(OpCode == 6'h04)? 1:0;
+		(OpCode == 6'h04 || OpCode==6'h05 || OpCode==6'h06 || OpCode==6'h07)? 1:0;
+
+	assign JumpID=
+		(OpCode==6'h02 || OpCode==6'h03 || (OpCode==6'h00 & Funct==6'h08) || (OpCode==6'h00 & Funct==6'h09))?1:0;//j,jal,jr,jalr
 
 	assign RegWriteID=
 		(stall)? 0:
-		(OpCode == 6'h2b || OpCode == 6'h04 || OpCode == 6'h04 || (OpCode == 6'h00 & Funct == 6'h08))? 0:1;
+		(OpCode == 6'h2b || OpCode == 6'h04 || OpCode == 6'h05 || OpCode==6'h06 || OpCode==6'h07 ||
+		 OpCode == 6'h02 || (OpCode == 6'h00 & Funct == 6'h08))? 0:1;//sw,beq,bne,blez,bgtz,j,jr
 	
 	assign RegDstID=
 		(OpCode == 6'h23 || OpCode == 6'h0f || OpCode == 6'h08 || OpCode == 6'h09 || OpCode == 6'h0c || OpCode == 6'h0b || OpCode == 6'h0a)? 2'b00:

@@ -1,7 +1,7 @@
 
-module ALU(in1, in2, ALUCt, Sign, out, zero);
+module ALU(in1, in2, ALUCt, Sign, out, zero,shamt);
 	input [31:0] in1, in2;
-	input [4:0] ALUCt;
+	input [4:0] ALUCt,shamt;
 	input Sign;
 	output reg [31:0] out;
 	output zero;
@@ -27,9 +27,9 @@ module ALU(in1, in2, ALUCt, Sign, out, zero);
 			5'b00111: out <= {31'h00000000, Sign? lt_signed: (in1 < in2)};
 			5'b01100: out <= ~(in1 | in2);
 			5'b01101: out <= in1 ^ in2;
-			5'b10000: out <= (in2 << in1[4:0]);
-			5'b11000: out <= (in2 >> in1[4:0]);
-			5'b11001: out <= ({{32{in2[31]}}, in2} >> in1[4:0]);
+			5'b10000: out <= (in2 << shamt);
+			5'b11000: out <= (in2 >> shamt);
+			5'b11001: out <= ({{32{in2[31]}}, in2} >> shamt);
 			default: out <= 32'h00000000;
 		endcase
 	
