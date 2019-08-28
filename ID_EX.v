@@ -9,14 +9,14 @@ module ID_EX(clk,reset,intterupt,
     input clk,reset,intterupt;
     input [31:0] PCplus4ID,readdata1ID,readdata2ID,extenddataID;
     input [4:0] rdaddrID,rtaddrID,rsaddrID,shamtID;
-    input RegWriteID,ExtOpID,MemReadID,MemWriteID,ALUSrcID,MemtoRegID;
-    input [1:0] RegDstID;
+    input RegWriteID,ExtOpID,MemReadID,MemWriteID,ALUSrcID;
+    input [1:0] RegDstID,MemtoRegID;
     input [3:0] ALUOpID;
     input [5:0] FunctID;
     output reg [31:0] PCplus4EX,readdata1EX,readdata2EX,extenddataEX;
     output reg [4:0] rdaddrEX,rtaddrEX,rsaddrEX,shamtEX;
-    output reg RegWriteEX,ExtOpEX,MemReadEX,MemWriteEX,ALUSrcEX,MemtoRegEX;
-    output reg [1:0] RegDstEX;
+    output reg RegWriteEX,ExtOpEX,MemReadEX,MemWriteEX,ALUSrcEX;
+    output reg [1:0] RegDstEX,MemtoRegEX;
     output reg [3:0] ALUOpEX;
     output reg [5:0] FunctEX;
 

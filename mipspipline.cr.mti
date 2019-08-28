@@ -47,6 +47,13 @@ Model Technology ModelSim SE-64 vlog 10.7 Compiler 2017.12 Dec  7 2017
 Top level modules:
 	RegisterFile
 
+} {} {}} C:/Users/OY/Documents/mipspipline/MEM_WB.v {1 {vlog -work work -vopt -stats=none C:/Users/OY/Documents/mipspipline/MEM_WB.v
+Model Technology ModelSim SE-64 vlog 10.7 Compiler 2017.12 Dec  7 2017
+-- Compiling module MEM_WB
+
+Top level modules:
+	MEM_WB
+
 } {} {}} C:/Users/OY/Documents/mipspipline/Compare.v {1 {vlog -work work -vopt -stats=none C:/Users/OY/Documents/mipspipline/Compare.v
 Model Technology ModelSim SE-64 vlog 10.7 Compiler 2017.12 Dec  7 2017
 -- Compiling module Compare
@@ -61,13 +68,6 @@ Model Technology ModelSim SE-64 vlog 10.7 Compiler 2017.12 Dec  7 2017
 Top level modules:
 	DataForward
 
-} {} {}} C:/Users/OY/Documents/mipspipline/MEM_WB.v {1 {vlog -work work -vopt -stats=none C:/Users/OY/Documents/mipspipline/MEM_WB.v
-Model Technology ModelSim SE-64 vlog 10.7 Compiler 2017.12 Dec  7 2017
--- Compiling module MEM_WB
-
-Top level modules:
-	MEM_WB
-
 } {} {}} C:/Users/OY/Documents/mipspipline/Stall.v {1 {vlog -work work -vopt -stats=none C:/Users/OY/Documents/mipspipline/Stall.v
 Model Technology ModelSim SE-64 vlog 10.7 Compiler 2017.12 Dec  7 2017
 -- Compiling module Stall
@@ -75,19 +75,19 @@ Model Technology ModelSim SE-64 vlog 10.7 Compiler 2017.12 Dec  7 2017
 Top level modules:
 	Stall
 
-} {} {}} C:/Users/OY/Documents/mipspipline/ID_EX.v {1 {vlog -work work -vopt -stats=none C:/Users/OY/Documents/mipspipline/ID_EX.v
-Model Technology ModelSim SE-64 vlog 10.7 Compiler 2017.12 Dec  7 2017
--- Compiling module ID_EX
-
-Top level modules:
-	ID_EX
-
 } {} {}} C:/Users/OY/Documents/mipspipline/Control.v {1 {vlog -work work -vopt -stats=none C:/Users/OY/Documents/mipspipline/Control.v
 Model Technology ModelSim SE-64 vlog 10.7 Compiler 2017.12 Dec  7 2017
 -- Compiling module Control
 
 Top level modules:
 	Control
+
+} {} {}} C:/Users/OY/Documents/mipspipline/ID_EX.v {1 {vlog -work work -vopt -stats=none C:/Users/OY/Documents/mipspipline/ID_EX.v
+Model Technology ModelSim SE-64 vlog 10.7 Compiler 2017.12 Dec  7 2017
+-- Compiling module ID_EX
+
+Top level modules:
+	ID_EX
 
 } {} {}} C:/Users/OY/Documents/mipspipline/WB.v {1 {vlog -work work -vopt -stats=none C:/Users/OY/Documents/mipspipline/WB.v
 Model Technology ModelSim SE-64 vlog 10.7 Compiler 2017.12 Dec  7 2017
@@ -103,13 +103,6 @@ Model Technology ModelSim SE-64 vlog 10.7 Compiler 2017.12 Dec  7 2017
 Top level modules:
 	ALU
 
-} {} {}} C:/Users/OY/Documents/mipspipline/ALUControl.v {1 {vlog -work work -vopt -stats=none C:/Users/OY/Documents/mipspipline/ALUControl.v
-Model Technology ModelSim SE-64 vlog 10.7 Compiler 2017.12 Dec  7 2017
--- Compiling module ALUControl
-
-Top level modules:
-	ALUControl
-
 } {} {}} C:/Users/OY/Documents/mipspipline/DataMemory.v {1 {vlog -work work -vopt -stats=none C:/Users/OY/Documents/mipspipline/DataMemory.v
 Model Technology ModelSim SE-64 vlog 10.7 Compiler 2017.12 Dec  7 2017
 -- Compiling module DataMemory
@@ -123,6 +116,13 @@ Model Technology ModelSim SE-64 vlog 10.7 Compiler 2017.12 Dec  7 2017
 
 Top level modules:
 	IF_ID
+
+} {} {}} C:/Users/OY/Documents/mipspipline/ALUControl.v {1 {vlog -work work -vopt -stats=none C:/Users/OY/Documents/mipspipline/ALUControl.v
+Model Technology ModelSim SE-64 vlog 10.7 Compiler 2017.12 Dec  7 2017
+-- Compiling module ALUControl
+
+Top level modules:
+	ALUControl
 
 } {} {}} C:/Users/OY/Documents/mipspipline/EX_MEM.v {1 {vlog -work work -vopt -stats=none C:/Users/OY/Documents/mipspipline/EX_MEM.v
 Model Technology ModelSim SE-64 vlog 10.7 Compiler 2017.12 Dec  7 2017

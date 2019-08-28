@@ -15,6 +15,7 @@ module ALUControl(ALUOp, Funct, ALUCt, Sign);
 	parameter aluSLL = 5'b10000;
 	parameter aluSRL = 5'b11000;
 	parameter aluSRA = 5'b11001;
+	parameter aluLU  = 5'b11010;
 	
 	assign Sign = (ALUOp[2:0] == 3'b010)? ~Funct[0]: ~ALUOp[3];
 	
@@ -44,6 +45,7 @@ module ALUControl(ALUOp, Funct, ALUCt, Sign);
 			3'b100: ALUCt <= aluAND;
 			3'b011: ALUCt <= aluOR;
 			3'b101: ALUCt <= aluSLT;
+			3'b110: ALUCt <= aluLU;
 			3'b010: ALUCt <= aluFunct;
 			default: ALUCt <= aluADD;
 		endcase

@@ -30,6 +30,7 @@ module ALU(in1, in2, ALUCt, Sign, out, zero,shamt);
 			5'b10000: out <= (in2 << shamt);
 			5'b11000: out <= (in2 >> shamt);
 			5'b11001: out <= ({{32{in2[31]}}, in2} >> shamt);
+			5'b11010: out <= {in2[15:0],16'b0};
 			default: out <= 32'h00000000;
 		endcase
 	

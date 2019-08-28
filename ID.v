@@ -1,6 +1,6 @@
 module ID(clk,reset,intterupt,stall,instructionID,PCplus4ID,regwriteaddrWB,regwritedataWB,RegWriteWB,RegWriteMEM,
     ALUoutMEM,regwriteaddrMEM,readdata1ID,readdata2ID,extenddataID,rdaddrID,rtaddrID,rsaddrID,branchaddrID,jumpaddrID,
-    JumpID,PCSrcID,RegWriteID,ExtOpID,MemReadID,MemWriteID,ALUSrcID,MemtoRegID,BranchID,RegDstID,ALUOpID,FunctID,shamtID);
+    JumpID,JRID,PCSrcID,RegWriteID,ExtOpID,MemReadID,MemWriteID,ALUSrcID,MemtoRegID,BranchID,RegDstID,ALUOpID,FunctID,shamtID);
 
     input clk,reset,intterupt,stall;
     input [31:0] instructionID,PCplus4ID;
@@ -12,14 +12,14 @@ module ID(clk,reset,intterupt,stall,instructionID,PCplus4ID,regwriteaddrWB,regwr
     output [31:0] extenddataID;
     output [31:0] branchaddrID,jumpaddrID;
     output [4:0] rdaddrID,rtaddrID,rsaddrID,shamtID;
-    output RegWriteID,ExtOpID,MemReadID,MemWriteID,MemtoRegID,ALUSrcID,BranchID,JumpID;
-    output [1:0] RegDstID;
+    output RegWriteID,ExtOpID,MemReadID,MemWriteID,ALUSrcID,BranchID,JumpID,JRID;
+    output [1:0] RegDstID,MemtoRegID;
     output [3:0] ALUOpID;
     output [5:0] FunctID;
     output [2:0] PCSrcID;
 
     Control Control(.OpCode(instructionID[31:26]),.Funct(instructionID[5:0]),.stall(stall),
-		.BranchID(BranchID),.RegWriteID(RegWriteID),.RegDstID(RegDstID),.JumpID(JumpID), 
+		.BranchID(BranchID),.RegWriteID(RegWriteID),.RegDstID(RegDstID),.JumpID(JumpID),.JRID(JRID), 
 		.MemReadID(MemReadID),.MemWriteID(MemWriteID),.MemtoRegID(MemtoRegID),
 		.ALUSrcID(ALUSrcID),.ExtOpID(ExtOpID),.ALUOpID(ALUOpID));
 
@@ -55,6 +55,6 @@ module ID(clk,reset,intterupt,stall,instructionID,PCplus4ID,regwriteaddrWB,regwr
       .RegWriteWB(RegWriteWB),.RegWriteMEM(RegWriteMEM),//input control signals
       .forwardout1(forwardout1ID),.forwardout2(forwardout2ID));//output data
 
-    assign jumpaddrID={PCplus4ID[31:28],instructionID[25:0],2'b00};
+    assign jumpaddrID=JRID?forwardout1ID:{PCplus4ID[31:28],instructionID[25:0],2'b00};
 
 endmodule

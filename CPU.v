@@ -33,8 +33,8 @@ module CPU(reset, clk, intterupt);
     //wire [31:0] branchaddrID;
     wire [4:0] rdaddrID,rsaddrID,rtaddrID;//register dst address
     wire [4:0] shamtID;
-    wire RegWriteID,ExtOpID,MemReadID,MemWriteID,ALUSrcID,MemtoRegID,BranchID,JumpID;
-    wire [1:0] RegDstID;
+    wire RegWriteID,ExtOpID,MemReadID,MemWriteID,ALUSrcID,BranchID,JumpID,JRID;
+    wire [1:0] RegDstID,MemtoRegID;
     wire [3:0] ALUOpID;
     wire [5:0] FunctID;//control signals
 
@@ -45,33 +45,36 @@ module CPU(reset, clk, intterupt);
         .readdata1ID(readdata1ID),.readdata2ID(readdata2ID),.extenddataID(extenddataID),
         .rdaddrID(rdaddrID),.rtaddrID(rtaddrID),.rsaddrID(rsaddrID),.branchaddrID(branchaddrID),.jumpaddrID(jumpaddrID),//output data
         .RegWriteID(RegWriteID),.ExtOpID(ExtOpID),.MemReadID(MemReadID),.PCSrcID(PCSrcID),.shamtID(shamtID),
-        .MemWriteID(MemWriteID),.ALUSrcID(ALUSrcID),.MemtoRegID(MemtoRegID),.JumpID(JumpID),
+        .MemWriteID(MemWriteID),.ALUSrcID(ALUSrcID),.MemtoRegID(MemtoRegID),.JumpID(JumpID),.JRID(JRID),
         .BranchID(BranchID),.RegDstID(RegDstID),.ALUOpID(ALUOpID),.FunctID(FunctID));//output control signals
     
-    //wire [31:0] PCplus4EX;
+    wire [31:0] PCplus4EX;
     wire [31:0] readdata1EX;
     wire [31:0] readdata2EX;//read data from registers
     wire [31:0] extenddataEX;//imm extend data
     wire [4:0] rdaddrEX,rtaddrEX,rsaddrEX;//register dst address
     wire [4:0] shamtEX;
-    wire RegWriteEX,ExtOpEX,MemReadEX,MemWriteEX,ALUSrcEX,MemtoRegEX;
-    wire [1:0] RegDstEX;
+    wire RegWriteEX,ExtOpEX,MemReadEX,MemWriteEX,ALUSrcEX;
+    wire [1:0] RegDstEX,MemtoRegEX;
     wire [3:0] ALUOpEX;
     wire [5:0] FunctEX;//control signals
 
     wire [4:0] regwriteaddrEX;
+    wire MemReadMEM;
+    wire [1:0] MemtoRegMEM;
     StallFlush StallFlush(.clk(clk),.reset(reset),.intterupt(intterupt),
-        .regwriteaddrEX(regwriteaddrEX),.BranchID(BranchID),
-        .MemReadEX(MemReadEX),.rtaddrEX(rtaddrEX),.rtaddrID(rtaddrID),.rsaddrID(rsaddrID),.PCSrcID(PCSrcID),//input data and sig
+        .regwriteaddrEX(regwriteaddrEX),.BranchID(BranchID),.RegWriteEX(RegWriteEX),.JRID(JRID),
+        .MemReadEX(MemReadEX),.rtaddrEX(rtaddrEX),.rtaddrID(rtaddrID),.rsaddrID(rsaddrID),.PCSrcID(PCSrcID),
+        .MemReadMEM(MemReadMEM),.MemtoRegMEM(MemtoRegMEM),.regwriteaddrMEM(regwriteaddrMEM),//input data and sig
         .stall(stall),.flush(flush));//output sig
 
     ID_EX ID_EX(.clk(clk),.reset(reset),.intterupt(intterupt),
-        .readdata1ID(readdata1ID),.readdata2ID(readdata2ID),.extenddataID(extenddataID),
+        .readdata1ID(readdata1ID),.readdata2ID(readdata2ID),.extenddataID(extenddataID),.PCplus4ID(PCplus4ID),
         .rdaddrID(rdaddrID),.rtaddrID(rtaddrID),.rsaddrID(rsaddrID),.shamtID(shamtID),
         .RegWriteID(RegWriteID),.ExtOpID(ExtOpID),.MemReadID(MemReadID),
         .MemWriteID(MemWriteID),.ALUSrcID(ALUSrcID),.MemtoRegID(MemtoRegID),
         .RegDstID(RegDstID),.ALUOpID(ALUOpID),.FunctID(FunctID),
-        .readdata1EX(readdata1EX),.readdata2EX(readdata2EX),.extenddataEX(extenddataEX),
+        .readdata1EX(readdata1EX),.readdata2EX(readdata2EX),.extenddataEX(extenddataEX),.PCplus4EX(PCplus4EX),
         .rdaddrEX(rdaddrEX),.rtaddrEX(rtaddrEX),.rsaddrEX(rsaddrEX),.shamtEX(shamtEX),
         .RegWriteEX(RegWriteEX),.ExtOpEX(ExtOpEX),.MemReadEX(MemReadEX),
         .MemWriteEX(MemWriteEX),.ALUSrcEX(ALUSrcEX),.MemtoRegEX(MemtoRegEX),
@@ -99,13 +102,15 @@ module CPU(reset, clk, intterupt);
     //wire [31:0] ALUoutMEM;//used in EX
     wire [31:0] memwritedataMEM;
     //wire [4:0] regwriteaddrMEM;//uesd in EX
-    wire ALUequalMEM,MemWriteMEM,MemReadMEM,MemtoRegMEM;//,RegWriteMEM;
+    wire [31:0] PCplus4MEM;
+    wire ALUequalMEM,MemWriteMEM;//MemReadMEM,RegWriteMEM;
+    //wire [1:0] MemtoRegMEM;
 
     EX_MEM EX_MEM(.clk(clk),.reset(reset),.intterupt(intterupt),
         .ALUequalEX(ALUequalEX),.MemWriteEX(MemWriteEX),.MemReadEX(MemReadEX),.MemtoRegEX(MemtoRegEX),.RegWriteEX(RegWriteEX),
-        .ALUoutEX(ALUoutEX),.memwritedataEX(memwritedataEX),.regwriteaddrEX(regwriteaddrEX),
+        .ALUoutEX(ALUoutEX),.memwritedataEX(memwritedataEX),.regwriteaddrEX(regwriteaddrEX),.PCplus4EX(PCplus4EX),
         .ALUequalMEM(ALUequalMEM),.MemWriteMEM(MemWriteMEM),.MemReadMEM(MemReadMEM),.MemtoRegMEM(MemtoRegMEM),.RegWriteMEM(RegWriteMEM),
-        .ALUoutMEM(ALUoutMEM),.memwritedataMEM(memwritedataMEM),.regwriteaddrMEM(regwriteaddrMEM));
+        .ALUoutMEM(ALUoutMEM),.memwritedataMEM(memwritedataMEM),.regwriteaddrMEM(regwriteaddrMEM),.PCplus4MEM(PCplus4MEM));
 
     wire [31:0] memreaddataMEM;
     //wire PCSrcMEM;//used in IF
@@ -117,20 +122,21 @@ module CPU(reset, clk, intterupt);
 
     wire [31:0] ALUoutWB;
     wire [31:0] memreaddataWB;
+    wire [31:0] PCplus4WB;
     //wire [4:0] regwriteaddrWB;//used in ID
-    wire MemtoRegWB;
+    wire [1:0] MemtoRegWB;
     //wire RegWriteWB;//used in ID
 
     MEM_WB MEM_WB(.clk(clk),.reset(reset),.intterupt(intterupt),
         .ALUoutMEM(ALUoutMEM),.memreaddataMEM(memreaddataMEM),.regwriteaddrMEM(regwriteaddrMEM),
-        .MemtoRegMEM(MemtoRegMEM),.RegWriteMEM(RegWriteMEM),
+        .MemtoRegMEM(MemtoRegMEM),.RegWriteMEM(RegWriteMEM),.PCplus4MEM(PCplus4MEM),
         .ALUoutWB(ALUoutWB),.memreaddataWB(memreaddataWB),.regwriteaddrWB(regwriteaddrWB),
-        .MemtoRegWB(MemtoRegWB),.RegWriteWB(RegWriteWB));
+        .MemtoRegWB(MemtoRegWB),.RegWriteWB(RegWriteWB),.PCplus4WB(PCplus4WB));
 
     //wire [31:0] regwritedataWB;//used in ID
 
     WB WB(.clk(clk),.reset(reset),.intterupt(intterupt),
-        .memreaddataWB(memreaddataWB),.ALUoutWB(ALUoutWB),.MemtoRegWB(MemtoRegWB),//input
+        .PCplus4WB(PCplus4WB),.memreaddataWB(memreaddataWB),.ALUoutWB(ALUoutWB),.MemtoRegWB(MemtoRegWB),//input
         .regwritedataWB(regwritedataWB));//output
 
 endmodule
