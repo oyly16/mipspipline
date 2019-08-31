@@ -36,6 +36,6 @@ module EX(clk,reset,intterupt,
         .out(ALUoutEX),.zero(ALUequalEX));
 
     assign memwritedataEX=forwardout2EX;
-    assign regwriteaddrEX=(RegDstEX==2'b00)? rtaddrEX:(RegDstEX==2'b01)? rdaddrEX:5'b11111;
+    assign regwriteaddrEX=(RegDstEX==2'b00)? rtaddrEX:(RegDstEX==2'b01)? rdaddrEX:(RegDstEX==2'b10)? 5'b11111:5'b11010;
 
 endmodule

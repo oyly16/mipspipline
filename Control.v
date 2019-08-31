@@ -1,10 +1,10 @@
 
-module Control(OpCode,Funct,stall,
+module Control(OpCode,Funct,stall,intterupt,exception,
 	BranchID,JumpID,JRID,RegWriteID,RegDstID,MemReadID,MemWriteID,MemtoRegID,ALUSrcID,ExtOpID,ALUOpID);
 
 	input [5:0] OpCode;
 	input [5:0] Funct;
-	input stall;
+	input stall,intterupt,exception;
 	//output [1:0] PCSrc;
 	output BranchID,JumpID,RegWriteID,MemReadID,MemWriteID,ALUSrcID,ExtOpID,JRID;
 	output [1:0] RegDstID,MemtoRegID;
@@ -30,11 +30,13 @@ module Control(OpCode,Funct,stall,
 		(OpCode==6'h00 & (Funct==6'h08 | Funct==6'h09));
 
 	assign RegWriteID=
+		(intterupt | exception)? 1:
 		(stall)? 0:
 		(OpCode == 6'h2b || OpCode == 6'h04 || OpCode == 6'h05 || OpCode==6'h06 || OpCode==6'h07 ||
 		 OpCode == 6'h02 || (OpCode == 6'h00 & Funct == 6'h08))? 0:1;//sw,beq,bne,blez,bgtz,j,jr
 	
 	assign RegDstID=
+		(intterupt | exception)? 2'b11:
 		(OpCode == 6'h23 || OpCode == 6'h0f || OpCode == 6'h08 || OpCode == 6'h09 || OpCode == 6'h0c || OpCode == 6'h0b || OpCode == 6'h0a || OpCode==6'h0d)? 2'b00:
 		(OpCode == 6'h03 || (OpCode==6'h00 & Funct==6'h09))? 2'b10:2'b01;
 		//I:addi 08,addiu 09,andi 0c,lui 0f,lw 23,ori 0d,slti 0a,sltiu 0b
@@ -44,12 +46,13 @@ module Control(OpCode,Funct,stall,
 		(OpCode == 6'h23)? 1:0;
 
 	assign MemWriteID=
-		(stall)? 0:
+		(stall | intterupt)? 0:
 		(OpCode == 6'h2b)? 1:0;
 
 	assign MemtoRegID=
+		intterupt? 2'b11:
 		(OpCode == 6'h23)? 2'b01:
-		(OpCode == 6'h03 || (OpCode == 6'h00 & Funct == 6'h09))? 2'b10:2'b00;
+		(exception || OpCode == 6'h03 || (OpCode == 6'h00 & Funct == 6'h09))? 2'b10:2'b00;
 
 	assign ALUSrcID=
 		(OpCode == 6'h23 || OpCode == 6'h2b || OpCode == 6'h0f || OpCode == 6'h08 || OpCode == 6'h09 || OpCode == 6'h0c || OpCode == 6'h0a || OpCode == 6'h0b || OpCode==6'h0d)? 1:0;

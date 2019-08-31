@@ -14,9 +14,11 @@ module StallFlush(clk,reset,intterupt,
     | (BranchID & RegWriteEX & (regwriteaddrEX!=0) & (regwriteaddrEX==rsaddrID | regwriteaddrEX==rtaddrID))//R and beq
     | (BranchID & MemReadMEM & (regwriteaddrMEM!=0) & ((regwriteaddrMEM==rsaddrID) | (regwriteaddrMEM==rtaddrID)))//lw and beq
     | (BranchID & (MemtoRegMEM==2'b10) & (rsaddrID==5'b11111 | rtaddrID==5'b11111))//jal and beq
+    | (BranchID & (MemtoRegMEM==2'b11) & (rsaddrID==5'b11010 | rtaddrID==5'b11010))//$26 and beq
     | (JRID & RegWriteEX & (regwriteaddrEX!=0) & (regwriteaddrEX==rsaddrID))//R and jr
     | (JRID & MemReadMEM & (regwriteaddrMEM!=0) & (regwriteaddrMEM==rsaddrID))//lw and jr
-    | (JRID & (MemtoRegMEM==2'b10) & rsaddrID==5'b11111);//jal and jr
+    | (JRID & (MemtoRegMEM==2'b10) & rsaddrID==5'b11111)//jal and jr
+    | (JRID & (MemtoRegMEM==2'b11) & rsaddrID==5'b11010);//$26 and jr
 
     assign flush=(stall!=1) & (PCSrcID!=0);
 

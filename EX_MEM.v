@@ -1,17 +1,17 @@
 module EX_MEM(clk,reset,intterupt,
     ALUequalEX,MemWriteEX,MemReadEX,MemtoRegEX,RegWriteEX,
-    ALUoutEX,memwritedataEX,regwriteaddrEX,PCplus4EX,
+    ALUoutEX,memwritedataEX,regwriteaddrEX,PCplus4EX,PCEX,
     ALUequalMEM,MemWriteMEM,MemReadMEM,MemtoRegMEM,RegWriteMEM,
-    ALUoutMEM,memwritedataMEM,regwriteaddrMEM,PCplus4MEM);
+    ALUoutMEM,memwritedataMEM,regwriteaddrMEM,PCplus4MEM,PCMEM);
 
     input clk,reset,intterupt;
     input ALUequalEX,MemWriteEX,MemReadEX,RegWriteEX;
     input [1:0] MemtoRegEX; 
-    input [31:0] ALUoutEX,memwritedataEX,PCplus4EX;
+    input [31:0] ALUoutEX,memwritedataEX,PCplus4EX,PCEX;
     input [4:0] regwriteaddrEX;
     output reg ALUequalMEM,MemWriteMEM,MemReadMEM,RegWriteMEM;
     output reg [1:0] MemtoRegMEM;
-    output reg [31:0] ALUoutMEM,memwritedataMEM,PCplus4MEM;
+    output reg [31:0] ALUoutMEM,memwritedataMEM,PCplus4MEM,PCMEM;
     output reg [4:0] regwriteaddrMEM;
 
     always @(posedge clk or posedge reset)
@@ -26,6 +26,7 @@ module EX_MEM(clk,reset,intterupt,
             memwritedataMEM<=0;
             regwriteaddrMEM<=0;
             PCplus4MEM<=0;
+            PCMEM<=0;
         end
         else begin
             ALUequalMEM<=ALUequalEX;
@@ -37,6 +38,7 @@ module EX_MEM(clk,reset,intterupt,
             memwritedataMEM<=memwritedataEX;
             regwriteaddrMEM<=regwriteaddrEX;
             PCplus4MEM<=PCplus4EX;
+            PCMEM<=PCEX;
         end
     end
 

@@ -1,19 +1,19 @@
 module ID_EX(clk,reset,intterupt,
     PCplus4ID,readdata1ID,readdata2ID,extenddataID,rdaddrID,rtaddrID,rsaddrID,
-    RegWriteID,ExtOpID,MemReadID,MemWriteID,FunctID,shamtID,
+    RegWriteID,ExtOpID,MemReadID,MemWriteID,FunctID,shamtID,PCID,
     ALUSrcID,MemtoRegID,RegDstID,ALUOpID,
     PCplus4EX,readdata1EX,readdata2EX,extenddataEX,rdaddrEX,rtaddrEX,rsaddrEX,
-    RegWriteEX,ExtOpEX,MemReadEX,MemWriteEX,FunctEX,shamtEX,
+    RegWriteEX,ExtOpEX,MemReadEX,MemWriteEX,FunctEX,shamtEX,PCEX,
     ALUSrcEX,MemtoRegEX,RegDstEX,ALUOpEX);
 
     input clk,reset,intterupt;
-    input [31:0] PCplus4ID,readdata1ID,readdata2ID,extenddataID;
+    input [31:0] PCplus4ID,readdata1ID,readdata2ID,extenddataID,PCID;
     input [4:0] rdaddrID,rtaddrID,rsaddrID,shamtID;
     input RegWriteID,ExtOpID,MemReadID,MemWriteID,ALUSrcID;
     input [1:0] RegDstID,MemtoRegID;
     input [3:0] ALUOpID;
     input [5:0] FunctID;
-    output reg [31:0] PCplus4EX,readdata1EX,readdata2EX,extenddataEX;
+    output reg [31:0] PCplus4EX,readdata1EX,readdata2EX,extenddataEX,PCEX;
     output reg [4:0] rdaddrEX,rtaddrEX,rsaddrEX,shamtEX;
     output reg RegWriteEX,ExtOpEX,MemReadEX,MemWriteEX,ALUSrcEX;
     output reg [1:0] RegDstEX,MemtoRegEX;
@@ -24,6 +24,7 @@ module ID_EX(clk,reset,intterupt,
     begin
         if(reset) begin
             PCplus4EX<=0;
+            PCEX<=0;
             readdata1EX<=0;
             readdata2EX<=0;
             extenddataEX<=0;
@@ -43,6 +44,7 @@ module ID_EX(clk,reset,intterupt,
         end
         else begin
             PCplus4EX<=PCplus4ID;
+            PCEX<=PCID;
             readdata1EX<=readdata1ID;
             readdata2EX<=readdata2ID;
             extenddataEX<=extenddataID;

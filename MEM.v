@@ -1,14 +1,16 @@
 module MEM(clk,reset,intterupt,
-    memaddrMEM,memwritedataMEM,
+    memaddrMEM,memwritedataMEM,check,
     ALUequalMEM,MemWriteMEM,MemReadMEM,
-    memreaddataMEM);
+    memreaddataMEM,leds,digi);
 
-    input clk,reset,intterupt;
+    input clk,reset,intterupt,check;
     input [31:0] memaddrMEM,memwritedataMEM;
     input ALUequalMEM,MemWriteMEM,MemReadMEM;
     output [31:0] memreaddataMEM;
+    output [7:0] leds;
+    output [11:0] digi;
     
-    DataMemory DataMemory(.reset(reset),.clk(clk),.Address(memaddrMEM),.Write_data(memwritedataMEM),.Read_data(memreaddataMEM),
-        .MemRead(MemReadMEM),.MemWrite(MemWriteMEM));
+    DataMemory DataMemory(.reset(reset),.clk(clk),.interrupt(intterupt),.Address(memaddrMEM),.Write_data(memwritedataMEM),.Read_data(memreaddataMEM),
+        .MemRead(MemReadMEM),.MemWrite(MemWriteMEM),.leds(leds),.digi(digi),.check(check));
 
 endmodule

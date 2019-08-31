@@ -1,16 +1,16 @@
-C:/Users/OY/Documents/mipspipline/IF.v {1 {vlog -work work -vopt -stats=none C:/Users/OY/Documents/mipspipline/IF.v
-Model Technology ModelSim SE-64 vlog 10.7 Compiler 2017.12 Dec  7 2017
--- Compiling module IF
-
-Top level modules:
-	IF
-
-} {} {}} C:/Users/OY/Documents/mipspipline/MEM.v {1 {vlog -work work -vopt -stats=none C:/Users/OY/Documents/mipspipline/MEM.v
+C:/Users/OY/Documents/mipspipline/MEM.v {1 {vlog -work work -vopt -stats=none C:/Users/OY/Documents/mipspipline/MEM.v
 Model Technology ModelSim SE-64 vlog 10.7 Compiler 2017.12 Dec  7 2017
 -- Compiling module MEM
 
 Top level modules:
 	MEM
+
+} {} {}} C:/Users/OY/Documents/mipspipline/IF.v {1 {vlog -work work -vopt -stats=none C:/Users/OY/Documents/mipspipline/IF.v
+Model Technology ModelSim SE-64 vlog 10.7 Compiler 2017.12 Dec  7 2017
+-- Compiling module IF
+
+Top level modules:
+	IF
 
 } {} {}} C:/Users/OY/Documents/mipspipline/CPU.v {1 {vlog -work work -vopt -stats=none C:/Users/OY/Documents/mipspipline/CPU.v
 Model Technology ModelSim SE-64 vlog 10.7 Compiler 2017.12 Dec  7 2017
@@ -46,6 +46,13 @@ Model Technology ModelSim SE-64 vlog 10.7 Compiler 2017.12 Dec  7 2017
 
 Top level modules:
 	RegisterFile
+
+} {} {}} C:/Users/OY/Documents/mipspipline/peripherals.v {1 {vlog -work work -vopt -stats=none C:/Users/OY/Documents/mipspipline/peripherals.v
+Model Technology ModelSim SE-64 vlog 10.7 Compiler 2017.12 Dec  7 2017
+-- Compiling module peripherals
+
+Top level modules:
+	peripherals
 
 } {} {}} C:/Users/OY/Documents/mipspipline/MEM_WB.v {1 {vlog -work work -vopt -stats=none C:/Users/OY/Documents/mipspipline/MEM_WB.v
 Model Technology ModelSim SE-64 vlog 10.7 Compiler 2017.12 Dec  7 2017
@@ -110,13 +117,6 @@ Model Technology ModelSim SE-64 vlog 10.7 Compiler 2017.12 Dec  7 2017
 Top level modules:
 	DataMemory
 
-} {} {}} C:/Users/OY/Documents/mipspipline/IF_ID.v {1 {vlog -work work -vopt -stats=none C:/Users/OY/Documents/mipspipline/IF_ID.v
-Model Technology ModelSim SE-64 vlog 10.7 Compiler 2017.12 Dec  7 2017
--- Compiling module IF_ID
-
-Top level modules:
-	IF_ID
-
 } {} {}} C:/Users/OY/Documents/mipspipline/ALUControl.v {1 {vlog -work work -vopt -stats=none C:/Users/OY/Documents/mipspipline/ALUControl.v
 Model Technology ModelSim SE-64 vlog 10.7 Compiler 2017.12 Dec  7 2017
 -- Compiling module ALUControl
@@ -130,6 +130,13 @@ Model Technology ModelSim SE-64 vlog 10.7 Compiler 2017.12 Dec  7 2017
 
 Top level modules:
 	EX_MEM
+
+} {} {}} C:/Users/OY/Documents/mipspipline/IF_ID.v {1 {vlog -work work -vopt -stats=none C:/Users/OY/Documents/mipspipline/IF_ID.v
+Model Technology ModelSim SE-64 vlog 10.7 Compiler 2017.12 Dec  7 2017
+-- Compiling module IF_ID
+
+Top level modules:
+	IF_ID
 
 } {} {}} C:/Users/OY/Documents/mipspipline/ID.v {1 {vlog -work work -vopt -stats=none C:/Users/OY/Documents/mipspipline/ID.v
 Model Technology ModelSim SE-64 vlog 10.7 Compiler 2017.12 Dec  7 2017

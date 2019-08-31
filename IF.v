@@ -1,19 +1,22 @@
-module IF(clk,reset,intterupt,stall,flush,
+module IF(clk,reset,intterupt,stall,flush,exception,
     PCSrcID,branchaddrID,jumpaddrID,instructionIF,
-    PCplus4IF,instructionID);
+    PCIF,PCplus4IF,instructionID);
 
-    input clk,reset,intterupt,stall,flush;
+    input clk,reset,intterupt,stall,flush,exception;
     input [2:0] PCSrcID;
     input [31:0] branchaddrID,jumpaddrID;
     input [31:0] instructionID;//stall
     output [31:0] instructionIF;
-    output [31:0] PCplus4IF;
+    output [31:0] PCplus4IF,PCIF;
 
     reg [31:0] PC;
     wire [31:0] PCnext;
+    assign PCIF=flush? PC-32'd4:PC;
 
     assign PCplus4IF=(stall)?PC:PC+32'd4;
     assign PCnext=
+        (PCSrcID==3)? 32'h80000004:
+        (PCSrcID==4)? 32'h80000008:
         (stall)? PC:
         (PCSrcID==1)? branchaddrID:
         (PCSrcID==2)? jumpaddrID:

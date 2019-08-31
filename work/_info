@@ -9,10 +9,10 @@ z2
 cModel Technology
 dC:/modeltech64_10.7/examples
 T_opt
-!s110 1567017551
-V<f164:3lGCIijI1jEb_RE1
+!s110 1567280834
+V:GijnnNjz[<GzhQOmd3Tk0
 04 8 4 work test_cpu fast 0
-=1-54ab3aa15ca4-5d66ca4f-300-2730
+=1-54ab3aa15ca4-5d6acec2-8d-8d4
 o-quiet -auto_acc_if_foreign -work work +acc
 Z0 tCvgOpt 0
 n@_opt
@@ -84,13 +84,13 @@ R6
 R0
 n@compare
 vControl
-Z7 !s110 1567015082
+!s110 1567241862
 !i10b 1
-!s100 czijWcb`1mEg>nmB>WO=]0
-IB@PjAblS[:][mb`YjT:<I3
+!s100 WfM[:aS]2@YigXFObR>h00
+I:_@kZ0VNoJ>mAgQ3MGbLE1
 R2
 R3
-w1567014961
+w1567239052
 8C:/Users/OY/Documents/mipspipline/Control.v
 FC:/Users/OY/Documents/mipspipline/Control.v
 L0 2
@@ -98,7 +98,7 @@ R4
 r1
 !s85 0
 31
-Z8 !s108 1567015082.000000
+Z7 !s108 1567241862.000000
 !s107 C:/Users/OY/Documents/mipspipline/Control.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/OY/Documents/mipspipline/Control.v|
 !i113 0
@@ -106,13 +106,13 @@ R6
 R0
 n@control
 vCPU
-R7
+Z8 !s110 1567279298
 !i10b 1
-!s100 8SS_>@K;26?m8WFPY@z@R0
-IA2J806jkSSKgEbhR@<M<02
+!s100 3=O8OWRVoS30kGz>e;7IU1
+Inhgj1BRUDh3zj5L:DVF>B1
 R2
 R3
-w1567015052
+w1567279217
 8C:/Users/OY/Documents/mipspipline/CPU.v
 FC:/Users/OY/Documents/mipspipline/CPU.v
 L0 2
@@ -120,7 +120,7 @@ R4
 r1
 !s85 0
 31
-R8
+Z9 !s108 1567279298.000000
 !s107 C:/Users/OY/Documents/mipspipline/CPU.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/OY/Documents/mipspipline/CPU.v|
 !i113 0
@@ -150,13 +150,13 @@ R6
 R0
 n@data@forward
 vDataMemory
-!s110 1566890963
+R8
 !i10b 1
-!s100 mL9O>ChNT>;;>5PR_8lo_2
-I0^l<HjlhB@;0W6]LlHGgQ3
+!s100 @h0WW]LQPYzO_nM8h;SMX1
+IGGW:oBZQR`6;d_GMd<]1A3
 R2
 R3
-w1430660811
+w1567279253
 8C:/Users/OY/Documents/mipspipline/DataMemory.v
 FC:/Users/OY/Documents/mipspipline/DataMemory.v
 L0 2
@@ -164,7 +164,7 @@ R4
 r1
 !s85 0
 31
-!s108 1566890963.000000
+R9
 !s107 C:/Users/OY/Documents/mipspipline/DataMemory.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/OY/Documents/mipspipline/DataMemory.v|
 !i113 0
@@ -172,13 +172,13 @@ R6
 R0
 n@data@memory
 vEX
-!s110 1566936740
+Z10 !s110 1567241863
 !i10b 1
-!s100 dWGMSBW>WWbGgbNR=OK0H1
-IkEQMDR=g58Y27B=6;m`Z;1
+!s100 =QmGYC4iCC=79cX9K5Aem0
+I@Zah6?AV:z@R[oMWEn]IU2
 R2
 R3
-w1566936448
+w1567238237
 8C:/Users/OY/Documents/mipspipline/EX.v
 FC:/Users/OY/Documents/mipspipline/EX.v
 L0 1
@@ -186,7 +186,7 @@ R4
 r1
 !s85 0
 31
-!s108 1566936740.000000
+R7
 !s107 C:/Users/OY/Documents/mipspipline/EX.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/OY/Documents/mipspipline/EX.v|
 !i113 0
@@ -194,13 +194,13 @@ R6
 R0
 n@e@x
 vEX_MEM
-R1
+R10
 !i10b 1
-!s100 0m^gPVj?D]6MA1iQbTBLD3
-IFbP10h00`ib5bOBoOgzV=2
+!s100 1IVXlUaf5CX69S6o`5E6V3
+I>2[YEIT?U92Qz>d@[@Uok2
 R2
 R3
-w1566980711
+w1567236779
 8C:/Users/OY/Documents/mipspipline/EX_MEM.v
 FC:/Users/OY/Documents/mipspipline/EX_MEM.v
 L0 1
@@ -208,7 +208,7 @@ R4
 r1
 !s85 0
 31
-R5
+Z11 !s108 1567241863.000000
 !s107 C:/Users/OY/Documents/mipspipline/EX_MEM.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/OY/Documents/mipspipline/EX_MEM.v|
 !i113 0
@@ -216,13 +216,13 @@ R6
 R0
 n@e@x_@m@e@m
 vID
-!s110 1567017542
+R8
 !i10b 1
-!s100 fi9nSVT4b8lbUSWPB]W5a1
-IfnGTeYza:=lLOe?G3FDKO2
+!s100 ]NQb:h6kZ?]_W`7Wd1L_53
+I[Xn]FnbWPmEDA4lT:NXaX2
 R2
 R3
-w1567017520
+w1567279075
 8C:/Users/OY/Documents/mipspipline/ID.v
 FC:/Users/OY/Documents/mipspipline/ID.v
 L0 1
@@ -230,7 +230,7 @@ R4
 r1
 !s85 0
 31
-!s108 1567017542.000000
+R9
 !s107 C:/Users/OY/Documents/mipspipline/ID.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/OY/Documents/mipspipline/ID.v|
 !i113 0
@@ -238,13 +238,13 @@ R6
 R0
 n@i@d
 vID_EX
-!s110 1566985034
+!s110 1567241935
 !i10b 1
-!s100 E@omcjCJ>1_K8Ydo7fWT72
-I[``Ddo84Y9MJ[mUF;LPWY3
+!s100 8Alh]a6CASVh9^3cU?B5f0
+IkD3S9R@VUZ]z@=5YNHCTD0
 R2
 R3
-w1566985018
+w1567241927
 8C:/Users/OY/Documents/mipspipline/ID_EX.v
 FC:/Users/OY/Documents/mipspipline/ID_EX.v
 L0 1
@@ -252,7 +252,7 @@ R4
 r1
 !s85 0
 31
-!s108 1566985034.000000
+!s108 1567241935.000000
 !s107 C:/Users/OY/Documents/mipspipline/ID_EX.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/OY/Documents/mipspipline/ID_EX.v|
 !i113 0
@@ -260,13 +260,13 @@ R6
 R0
 n@i@d_@e@x
 vIF
-!s110 1566922551
+!s110 1567274916
 !i10b 1
-!s100 G[b<z>USP8j][8IV_8n=^0
-IjLY9Pa4g@:OD5ng3m:m4H3
+!s100 jbRBO60na>aK0[U4@i;`k0
+Ii7gFPK9LbjnW15HDhG5RP3
 R2
 R3
-w1566920548
+w1567274085
 8C:/Users/OY/Documents/mipspipline/IF.v
 FC:/Users/OY/Documents/mipspipline/IF.v
 L0 1
@@ -274,7 +274,7 @@ R4
 r1
 !s85 0
 31
-!s108 1566922551.000000
+!s108 1567274916.000000
 !s107 C:/Users/OY/Documents/mipspipline/IF.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/OY/Documents/mipspipline/IF.v|
 !i113 0
@@ -282,13 +282,13 @@ R6
 R0
 n@i@f
 vIF_ID
-Z9 !s110 1566890964
+R10
 !i10b 1
-!s100 3@3[A[oOCLXD^LJACh>FS1
-IV5fQ3[FM6>?AD@><2CGDH0
+!s100 HRGh^]]E4]S:`0a4I_`3l0
+I[O4K]F[fca?T;YGLmSlPe0
 R2
 R3
-w1566783795
+w1567237246
 8C:/Users/OY/Documents/mipspipline/IF_ID.v
 FC:/Users/OY/Documents/mipspipline/IF_ID.v
 L0 1
@@ -296,7 +296,7 @@ R4
 r1
 !s85 0
 31
-Z10 !s108 1566890964.000000
+R11
 !s107 C:/Users/OY/Documents/mipspipline/IF_ID.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/OY/Documents/mipspipline/IF_ID.v|
 !i113 0
@@ -304,13 +304,13 @@ R6
 R0
 n@i@f_@i@d
 vInstructionMemory
-!s110 1567016120
+!s110 1567280813
 !i10b 1
-!s100 KL>I]o>cChRN5n;hISIiT2
-I70o^;`Tgz_7co;eRU8JPS3
+!s100 KaEkNf9I0oaO[Eh`6Q3KA3
+Ie>B>9;@Sb?<UglJPNWi:H0
 R2
 R3
-w1567016061
+w1567280771
 8C:/Users/OY/Documents/mipspipline/InstructionMemory.v
 FC:/Users/OY/Documents/mipspipline/InstructionMemory.v
 L0 2
@@ -318,7 +318,7 @@ R4
 r1
 !s85 0
 31
-!s108 1567016120.000000
+!s108 1567280813.000000
 !s107 C:/Users/OY/Documents/mipspipline/InstructionMemory.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/OY/Documents/mipspipline/InstructionMemory.v|
 !i113 0
@@ -326,13 +326,13 @@ R6
 R0
 n@instruction@memory
 vMEM
-!s110 1566901597
+R8
 !i10b 1
-!s100 ?bPC=n2n_zDCFCR>l_CEk0
-I6EZ>Oi7oeHYn6HLfB3^ES1
+!s100 QQdafl8FLdzW4?SlIX^A70
+I_l?UBFjQhfGh_noCK>?;Y0
 R2
 R3
-w1566898977
+w1567279194
 8C:/Users/OY/Documents/mipspipline/MEM.v
 FC:/Users/OY/Documents/mipspipline/MEM.v
 L0 1
@@ -340,7 +340,7 @@ R4
 r1
 !s85 0
 31
-!s108 1566901597.000000
+R9
 !s107 C:/Users/OY/Documents/mipspipline/MEM.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/OY/Documents/mipspipline/MEM.v|
 !i113 0
@@ -348,13 +348,13 @@ R6
 R0
 n@m@e@m
 vMEM_WB
-!s110 1566985248
+R10
 !i10b 1
-!s100 PGeXf8niEg^Kf5FIL90nH1
-I4O@e?_D`G=5TOGe2jC[n31
+!s100 5O;V:`]7fmD7o4^L1jgh90
+I[hcz:736DP?IjZ<Og=O6D2
 R2
 R3
-w1566985143
+w1567236541
 8C:/Users/OY/Documents/mipspipline/MEM_WB.v
 FC:/Users/OY/Documents/mipspipline/MEM_WB.v
 L0 1
@@ -362,15 +362,36 @@ R4
 r1
 !s85 0
 31
-!s108 1566985248.000000
+R11
 !s107 C:/Users/OY/Documents/mipspipline/MEM_WB.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/OY/Documents/mipspipline/MEM_WB.v|
 !i113 0
 R6
 R0
 n@m@e@m_@w@b
-vRegisterFile
+vperipherals
+R8
+!i10b 1
+!s100 Ja<VJd2E8A>mNP9WFiAI73
+IHg`>fB[]G1=^WaSMe[TPn3
+R2
+R3
+w1567279282
+8C:/Users/OY/Documents/mipspipline/peripherals.v
+FC:/Users/OY/Documents/mipspipline/peripherals.v
+L0 1
+R4
+r1
+!s85 0
+31
 R9
+!s107 C:/Users/OY/Documents/mipspipline/peripherals.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/OY/Documents/mipspipline/peripherals.v|
+!i113 0
+R6
+R0
+vRegisterFile
+Z12 !s110 1566890964
 !i10b 1
 !s100 Z34eg0LQ9_HnR8jS6Ych62
 Igc;`iW5mF7J32l3TRZo;B0
@@ -384,7 +405,7 @@ R4
 r1
 !s85 0
 31
-R10
+Z13 !s108 1566890964.000000
 !s107 C:/Users/OY/Documents/mipspipline/RegisterFile.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/OY/Documents/mipspipline/RegisterFile.v|
 !i113 0
@@ -392,7 +413,7 @@ R6
 R0
 n@register@file
 vStall
-R9
+R12
 !i10b 1
 !s100 LQJj3^1?L`MTnMLA6KS323
 I9FLlDBfj?bG^;kiX@9EzQ1
@@ -406,7 +427,7 @@ R4
 r1
 !s85 0
 31
-R10
+R13
 !s107 C:/Users/OY/Documents/mipspipline/Stall.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/OY/Documents/mipspipline/Stall.v|
 !i113 0
@@ -414,13 +435,13 @@ R6
 R0
 n@stall
 vStallFlush
-!s110 1567015083
+!s110 1567244219
 !i10b 1
-!s100 4gmL3OW64;P0gj0EhN[J43
-IGNQAW][=3P_N5eF075dFD0
+!s100 Fg_5@ajg_z?2E`:5I@ETQ1
+IeS?NZWVkzO;UNHBhH`J2i3
 R2
 R3
-w1567014805
+w1567243298
 8C:/Users/OY/Documents/mipspipline/StallFlush.v
 FC:/Users/OY/Documents/mipspipline/StallFlush.v
 L0 1
@@ -428,7 +449,7 @@ R4
 r1
 !s85 0
 31
-!s108 1567015083.000000
+!s108 1567244219.000000
 !s107 C:/Users/OY/Documents/mipspipline/StallFlush.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/OY/Documents/mipspipline/StallFlush.v|
 !i113 0
@@ -436,13 +457,13 @@ R6
 R0
 n@stall@flush
 vtest_cpu
-!s110 1566890965
+!s110 1567275220
 !i10b 1
-!s100 eWVR>PbjmcHHTbQkzfo_;3
-IPXjYE8bH4g>`l?E2H2Ph92
+!s100 DHjWlb4I02HgJhH`R:9BD2
+I:BoZ577h615]A?BVgiN1R0
 R2
 R3
-w1566782446
+w1567275215
 8C:/Users/OY/Documents/mipspipline/test.v
 FC:/Users/OY/Documents/mipspipline/test.v
 L0 1
@@ -450,20 +471,20 @@ R4
 r1
 !s85 0
 31
-!s108 1566890965.000000
+!s108 1567275220.000000
 !s107 C:/Users/OY/Documents/mipspipline/test.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/OY/Documents/mipspipline/test.v|
 !i113 0
 R6
 R0
 vWB
-!s110 1566984975
+!s110 1567241864
 !i10b 1
-!s100 feldjT7kBXMD>cHGlMW1b0
-ImOJVlCzC?kif<:<eQ8n7f0
+!s100 9F=PWl[eO;GoOH?1PXeK90
+ILI[;KVj^@K70MoLi^eoMV2
 R2
 R3
-w1566980062
+w1567235349
 8C:/Users/OY/Documents/mipspipline/WB.v
 FC:/Users/OY/Documents/mipspipline/WB.v
 L0 1
@@ -471,7 +492,7 @@ R4
 r1
 !s85 0
 31
-!s108 1566984975.000000
+!s108 1567241864.000000
 !s107 C:/Users/OY/Documents/mipspipline/WB.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/OY/Documents/mipspipline/WB.v|
 !i113 0
