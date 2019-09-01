@@ -1,11 +1,13 @@
 
-module CPU(reset, clk);
+module CPU(reset, clk, leds, digi, showaddr, ramshowdata);
 
 	input reset, clk;//reset,and clock
+	input [6:0] showaddr;
     wire stall,flush;//stall for load-use,flush for beq,j
     wire intterupt,exception;
-    wire [7:0] leds;
-    wire [11:0] digi;
+    output [7:0] leds;
+    output [11:0] digi;
+    output [31:0] ramshowdata;
 
     //wire PCSrcMEM;//control signal to decide the next PC
     wire [2:0] PCSrcID;//control signal to decide the next PC
@@ -119,9 +121,9 @@ module CPU(reset, clk);
     //wire PCSrcMEM;//used in IF
 
     MEM MEM(.clk(clk),.reset(reset),.intterupt(intterupt),.leds(leds),.digi(digi),
-        .memaddrMEM(ALUoutMEM),.memwritedataMEM(memwritedataMEM),.check(PCIF[31]),//input data
+        .memaddrMEM(ALUoutMEM),.memwritedataMEM(memwritedataMEM),.check(PCIF[31]),.showaddr(showaddr),//input data
         .ALUequalMEM(ALUequalMEM),.MemWriteMEM(MemWriteMEM),.MemReadMEM(MemReadMEM),//input control signals
-        .memreaddataMEM(memreaddataMEM));//output data and control signals
+        .memreaddataMEM(memreaddataMEM),.ramshowdata(ramshowdata));//output data and control signals
 
     wire [31:0] ALUoutWB;
     wire [31:0] memreaddataWB;

@@ -15,16 +15,6 @@ main:
 sort:
     lw $s0,20($a0)#$s0 is the begin time of sort
     addi $s1,$0,0#$s1 is the begin of datamemory
-	addi $t0,$0,20
-	sw $t0,0($s1)
-	addi $t0,$0,16
-	sw $t0,4($s1)
-	addi $t0,$0,19
-	sw $t0,8($s1)
-	addi $t0,$0,6
-	sw $t0,12($s1)
-	addi $t0,$0,2
-	sw $t0,16($s1)#store N numbers
 	addi $s2,$0,4#s2=N-1
 	addi $s3,$0,1
 loop1:  

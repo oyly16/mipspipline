@@ -14,34 +14,42 @@ main:
     addi $t8,$0,-1#$t8=0xffffffff
 
 sort:
-    lw $s1,20($a0)
-    nop
-    nop
-    nop
-    nop
-    nop
-    nop
-    nop
-    nop
-    nop
-    nop
-    nop
-    nop
-    nop
-    nop
-    nop
-    nop
-    nop
-    nop
-    nop
-    nop
-    lw $s2,20($a0)
-    sub $a2,$s2,$s1
-    addi $s0,$0,-5
+    lw $a2,20($a0)#save start time
+    addi $s1,$0,0#$s1 is the begin of datamemory
+    addi $s2,$0,99#s2=N-1
+    addi $s3,$0,1
+loop1:  
+    bgt $s3,$s2,exit1
+    addi $s4,$s3,-1
+loop2:  
+    blt $s4,$0,exit2
+    sll $t0,$s4,2
+    add $t0,$s1,$t0
+    lw $t1,0($t0)
+    lw $t2,4($t0)
+    blt $t2,$t1,swap
+conti:  
+    addi $s4,$s4,-1
+    j loop2
+exit2:  
+    addi $s3,$s3,1
+    j loop1
+exit1:  
+    lw $t0,20($a0)
+    sub $a2,$t0,$a2#cal a2
+    addi $s0,$0,-60000
     sw $s0,0($a0)#set TH
     sw $t8,4($a0)#set TL
     sw $t6,8($a0)#open timer
     j end
+swap:   
+    sll $t1,$s4,2
+    add $t1,$s1,$t1
+    lw $t0,0($t1)
+    lw $t2,4($t1)
+    sw $t2,0($t1)
+    sw $t0,4($t1)
+    j conti
 
 interrupt:
     lw $t0,8($a0)
@@ -180,4 +188,4 @@ exception:
     jr $26
 
 end:
-    nop
+    j end

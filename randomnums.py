@@ -1,6 +1,4 @@
 import random
 
-for i in range(10):
-    print('addi $a0,$0,'+str(random.randint(0,20)))
-    print('sw $a0,0($a1)')
-    print('addi,$a1,$a1,4')
+for i in range(100):
+    print('RAM_data['+str(i)+']<=32\'d'+str(random.randint(0,200))+';')
