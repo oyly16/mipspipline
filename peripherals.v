@@ -54,9 +54,6 @@ module peripherals(clk,reset,Read,Write,addr,wdata,interrupt,rdata,leds,digi,che
                     32'h40000010: digi<=wdata[11:0];
                     32'h40000014: systick<=wdata;
                 endcase
-            end
-            else begin
-                systick<=systick+1;
             end 
         end
     end
